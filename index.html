@@ -13,96 +13,74 @@ body{
   background:linear-gradient(135deg,#fff,#ffe3ef,#ffb7d5);
   min-height:100vh;
 }
+[hidden]{display:none!important}
 .background{
-  position:fixed;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-  z-index:0;
+  position:fixed;inset:0;
+  overflow:hidden;pointer-events:none;z-index:0;
 }
 .heart{
-  position:absolute;
-  bottom:-80px;
-  animation:floatUp linear infinite;
-  opacity:.6;
+  position:absolute;bottom:-80px;
+  animation:floatUp linear infinite;opacity:.6;
 }
 @keyframes floatUp{
   from{transform:translateY(0) rotate(0)}
   to{transform:translateY(-120vh) rotate(30deg)}
 }
 .background-quote{
-  position:absolute;
-  color:#a82660;
-  opacity:.14;
-  font-style:italic;
-  font-size:clamp(18px,3vw,30px);
+  position:absolute;color:#a82660;opacity:.14;
+  font-style:italic;font-size:clamp(18px,3vw,30px);
 }
-main{
-  position:relative;
-  z-index:1;
-  max-width:950px;
-  margin:auto;
-  padding:35px 18px 50px;
-  text-align:center;
+main,.entrance{
+  position:relative;z-index:1;
+  max-width:950px;margin:auto;
+  padding:35px 18px 50px;text-align:center;
+}
+.entrance{
+  min-height:100svh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
 }
 h1{
   font-size:clamp(36px,7vw,68px);
-  margin:10px 0;
-  color:#ce1761;
+  margin:10px 0;color:#ce1761;
   text-shadow:0 2px 0 white;
 }
 .subtitle{font-size:20px;line-height:1.6}
 .flowers{font-size:35px;letter-spacing:8px}
 .photo-button{
-  display:block;
-  width:min(100%,480px);
-  margin:25px auto 12px;
-  padding:0;
-  background:white;
-  border:7px solid white;
-  border-radius:25px;
-  overflow:hidden;
-  cursor:pointer;
+  display:block;width:min(100%,480px);
+  margin:25px auto 12px;padding:0;
+  background:white;border:7px solid white;
+  border-radius:25px;overflow:hidden;cursor:pointer;
   box-shadow:0 15px 45px #c91f6250;
   transition:transform .25s;
 }
 .photo-button:hover{transform:scale(1.02)}
-.photo-button:focus-visible{outline:4px solid #bc1452;outline-offset:5px}
-.photo-button img{
-  display:block;
-  width:100%;
-  height:auto;
+.photo-button:focus-visible{
+  outline:4px solid #bc1452;outline-offset:5px;
+}
+.photo-button img,.birthday-photo img{
+  display:block;width:100%;height:auto;
+}
+.birthday-photo{
+  width:min(100%,480px);margin:25px auto;
+  border:7px solid white;border-radius:25px;
+  overflow:hidden;box-shadow:0 15px 45px #c91f6250;
 }
 .music-note{font-size:17px;margin:15px 0}
 .music-button{
-  border:0;
-  border-radius:30px;
-  padding:12px 24px;
-  background:#cb1b60;
-  color:white;
-  font:inherit;
-  cursor:pointer;
+  border:0;border-radius:30px;
+  padding:12px 24px;background:#cb1b60;
+  color:white;font:inherit;cursor:pointer;
 }
-.player-box{
-  max-width:480px;
-  margin:18px auto;
-  border-radius:15px;
-  overflow:hidden;
-  background:#fff;
-}
-.player-box iframe{width:100%;aspect-ratio:16/9;display:block;border:0}
 .letter,.quote{
   background:rgba(255,255,255,.9);
-  border:1px solid #fff;
-  border-radius:22px;
+  border:1px solid white;border-radius:22px;
   box-shadow:0 8px 25px #be28651a;
 }
 .letter{
-  max-width:740px;
-  margin:32px auto;
-  padding:28px;
-  font-size:20px;
-  line-height:1.8;
+  max-width:740px;margin:32px auto;
+  padding:28px;font-size:20px;line-height:1.8;
 }
 .letter h2{color:#c71d60;margin-top:0}
 .quotes{
@@ -114,7 +92,13 @@ h1{
 .quote span{display:block;font-size:30px;margin-bottom:10px}
 .signature{font-size:25px;font-style:italic;color:#c71d60}
 footer{margin-top:35px;font-size:19px;line-height:1.7}
-[hidden]{display:none!important}
+
+/* Music plays here without showing the video. */
+.music-player{
+  position:fixed;width:1px;height:1px;
+  left:-10000px;top:0;overflow:hidden;
+  pointer-events:none;
+}
 @media(max-width:600px){
   .quotes{grid-template-columns:1fr}
   .letter{padding:22px;font-size:18px}
@@ -127,36 +111,49 @@ footer{margin-top:35px;font-size:19px;line-height:1.7}
 </style>
 </head>
 <body>
+
 <div class="background" id="background" aria-hidden="true">
-  <span class="background-quote" style="top:8%;left:3%">A mother’s love is forever.</span>
-  <span class="background-quote" style="top:30%;right:2%">You are loved, Mom.</span>
-  <span class="background-quote" style="top:58%;left:2%">My first home was your heart.</span>
-  <span class="background-quote" style="top:82%;right:3%">Thank you for everything.</span>
+  <span class="background-quote" style="top:8%;left:3%">
+    A mother’s love is forever.
+  </span>
+  <span class="background-quote" style="top:30%;right:2%">
+    You are loved, Mom.
+  </span>
+  <span class="background-quote" style="top:58%;left:2%">
+    My first home was your heart.
+  </span>
+  <span class="background-quote" style="top:82%;right:3%">
+    Thank you for everything.
+  </span>
 </div>
 
-<main>
+<section class="entrance" id="entrance">
   <div class="flowers" aria-hidden="true">🌸 🌷 🌹 🌷 🌸</div>
   <h1>Happy Birthday, Mom!</h1>
+  <p class="subtitle">A special gift of love from your son, Jermaine. ❤️</p>
+
+  <button class="photo-button" id="enterButton"
+          aria-label="Enter your birthday page and play music">
+    <img src="mom1.png" alt="Mom surrounded by pink hearts and flowers">
+  </button>
+
+  <p class="music-note">💕 Click your picture to enter.</p>
+</section>
+
+<main id="birthdayPage" hidden>
+  <div class="flowers" aria-hidden="true">🌸 🌷 🌹 🌷 🌸</div>
+  <h1 id="birthdayHeading" tabindex="-1">Happy Birthday, Mom!</h1>
   <p class="subtitle">
     I love you today, tomorrow, and always.<br>
     A little birthday love from your son, Jermaine. ❤️
   </p>
 
-  <button class="photo-button" id="photoButton"
-          aria-label="Play Mom’s birthday song">
-    <img src="mom1.png" alt="Mom’s birthday portrait surrounded by pink hearts and flowers">
-  </button>
-
-  <p class="music-note" id="musicNote">💕 Click your picture to play your birthday song.</p>
-  <button class="music-button" id="musicButton">▶ Play your song</button>
-
-  <div class="player-box" id="playerBox" hidden>
-    <iframe id="songPlayer"
-      title="Mom’s birthday song"
-      allow="autoplay; encrypted-media; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+  <div class="birthday-photo">
+    <img src="mom1.png" alt="Mom’s beautiful birthday portrait">
   </div>
+
+  <button class="music-button" id="musicButton">♫ Pause music</button>
+  <p class="music-note" id="musicNote" aria-live="polite"></p>
 
   <section class="letter">
     <h2>I Love You, Mom ❤️</h2>
@@ -216,39 +213,100 @@ footer{margin-top:35px;font-size:19px;line-height:1.7}
   </footer>
 </main>
 
+<div class="music-player" aria-hidden="true">
+  <div id="songPlayer"></div>
+</div>
+
 <script>
 const background = document.getElementById("background");
-for (let i = 0; i < 28; i++) {
-  const heart = document.createElement("span");
-  heart.className = "heart";
-  heart.textContent = ["💗","💕","💖","🌸","🤍"][i % 5];
-  heart.style.left = Math.random() * 100 + "%";
-  heart.style.fontSize = 18 + Math.random() * 25 + "px";
-  heart.style.animationDuration = 12 + Math.random() * 16 + "s";
-  heart.style.animationDelay = -Math.random() * 28 + "s";
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    heart.style.top = Math.random() * 100 + "%";
-  }
+const reducedMotion =
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+for(let i=0;i<28;i++){
+  const heart=document.createElement("span");
+  heart.className="heart";
+  heart.textContent=["💗","💕","💖","🌸","🤍"][i%5];
+  heart.style.left=Math.random()*100+"%";
+  heart.style.fontSize=18+Math.random()*25+"px";
+  heart.style.animationDuration=12+Math.random()*16+"s";
+  heart.style.animationDelay=-Math.random()*28+"s";
+  if(reducedMotion) heart.style.top=Math.random()*100+"%";
   background.appendChild(heart);
 }
 
-let songStarted = false;
-function playSong() {
-  document.getElementById("playerBox").hidden = false;
-  if (!songStarted) {
-    document.getElementById("songPlayer").src =
-      "https://www.youtube.com/embed/vdTnuc3ktzo?autoplay=1&playsinline=1&rel=0";
-    songStarted = true;
-  }
-  document.getElementById("musicNote").textContent =
-    "💕 Your birthday song is below. Tap the video’s play button if needed.";
-  document.getElementById("musicButton").textContent = "💕 Show your song";
+let player;
+let playerReady=false;
+let entered=false;
+let wantsMusic=true;
+
+const musicButton=document.getElementById("musicButton");
+const musicNote=document.getElementById("musicNote");
+
+function updateButton(){
+  musicButton.textContent=wantsMusic?"♫ Pause music":"♫ Play music";
 }
-document.getElementById("photoButton").addEventListener("click", playSong);
-document.getElementById("musicButton").addEventListener("click", () => {
-  playSong();
-  document.getElementById("playerBox").scrollIntoView({block:"center"});
+
+window.onYouTubeIframeAPIReady=function(){
+  player=new YT.Player("songPlayer",{
+    width:200,
+    height:200,
+    videoId:"vdTnuc3ktzo",
+    playerVars:{
+      playsinline:1,
+      controls:0,
+      loop:1,
+      playlist:"vdTnuc3ktzo"
+    },
+    events:{
+      onReady:function(){
+        playerReady=true;
+        if(entered && wantsMusic) player.playVideo();
+      },
+      onStateChange:function(event){
+        if(event.data===YT.PlayerState.PLAYING){
+          musicNote.textContent="";
+        }
+      },
+      onAutoplayBlocked:function(){
+        wantsMusic=false;
+        updateButton();
+        musicNote.textContent="Tap Play music to start your song.";
+      },
+      onError:function(){
+        musicNote.textContent=
+          "This song cannot play here. Try a different embeddable song.";
+        musicButton.disabled=true;
+      }
+    }
+  });
+};
+
+document.getElementById("enterButton").addEventListener("click",function(){
+  entered=true;
+  document.getElementById("entrance").hidden=true;
+  document.getElementById("birthdayPage").hidden=false;
+  window.scrollTo(0,0);
+  document.getElementById("birthdayHeading").focus({preventScroll:true});
+  if(playerReady) player.playVideo();
 });
+
+musicButton.addEventListener("click",function(){
+  wantsMusic=!wantsMusic;
+  updateButton();
+  if(!playerReady){
+    musicNote.textContent="The song is loading. Please try again in a moment.";
+    return;
+  }
+  if(wantsMusic){
+    player.playVideo();
+  }else{
+    player.pauseVideo();
+  }
+});
+
+const youtubeScript=document.createElement("script");
+youtubeScript.src="https://www.youtube.com/iframe_api";
+document.head.appendChild(youtubeScript);
 </script>
 </body>
 </html>
