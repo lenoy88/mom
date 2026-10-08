@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Mom ❤️ From Jermaine</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color:#8b1749;
+  font-family:Georgia,serif;
+  background:linear-gradient(135deg,#fff,#ffe3ef,#ffb7d5);
+  min-height:100vh;
+}
+.background{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+.heart{
+  position:absolute;
+  bottom:-80px;
+  animation:floatUp linear infinite;
+  opacity:.6;
+}
+@keyframes floatUp{
+  from{transform:translateY(0) rotate(0)}
+  to{transform:translateY(-120vh) rotate(30deg)}
+}
+.background-quote{
+  position:absolute;
+  color:#a82660;
+  opacity:.14;
+  font-style:italic;
+  font-size:clamp(18px,3vw,30px);
+}
+main{
+  position:relative;
+  z-index:1;
+  max-width:950px;
+  margin:auto;
+  padding:35px 18px 50px;
+  text-align:center;
+}
+h1{
+  font-size:clamp(36px,7vw,68px);
+  margin:10px 0;
+  color:#ce1761;
+  text-shadow:0 2px 0 white;
+}
+.subtitle{font-size:20px;line-height:1.6}
+.flowers{font-size:35px;letter-spacing:8px}
+.photo-button{
+  display:block;
+  width:min(100%,480px);
+  margin:25px auto 12px;
+  padding:0;
+  background:white;
+  border:7px solid white;
+  border-radius:25px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 15px 45px #c91f6250;
+  transition:transform .25s;
+}
+.photo-button:hover{transform:scale(1.02)}
+.photo-button:focus-visible{outline:4px solid #bc1452;outline-offset:5px}
+.photo-button img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.music-note{font-size:17px;margin:15px 0}
+.music-button{
+  border:0;
+  border-radius:30px;
+  padding:12px 24px;
+  background:#cb1b60;
+  color:white;
+  font:inherit;
+  cursor:pointer;
+}
+.player-box{
+  max-width:480px;
+  margin:18px auto;
+  border-radius:15px;
+  overflow:hidden;
+  background:#fff;
+}
+.player-box iframe{width:100%;aspect-ratio:16/9;display:block;border:0}
+.letter,.quote{
+  background:rgba(255,255,255,.9);
+  border:1px solid #fff;
+  border-radius:22px;
+  box-shadow:0 8px 25px #be28651a;
+}
+.letter{
+  max-width:740px;
+  margin:32px auto;
+  padding:28px;
+  font-size:20px;
+  line-height:1.8;
+}
+.letter h2{color:#c71d60;margin-top:0}
+.quotes{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+.quote{padding:25px 20px;font-size:20px;line-height:1.6}
+.quote span{display:block;font-size:30px;margin-bottom:10px}
+.signature{font-size:25px;font-style:italic;color:#c71d60}
+footer{margin-top:35px;font-size:19px;line-height:1.7}
+[hidden]{display:none!important}
+@media(max-width:600px){
+  .quotes{grid-template-columns:1fr}
+  .letter{padding:22px;font-size:18px}
+  main{padding-top:25px}
+}
+@media(prefers-reduced-motion:reduce){
+  .heart{animation:none;bottom:auto}
+  .photo-button{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="background" id="background" aria-hidden="true">
+  <span class="background-quote" style="top:8%;left:3%">A mother’s love is forever.</span>
+  <span class="background-quote" style="top:30%;right:2%">You are loved, Mom.</span>
+  <span class="background-quote" style="top:58%;left:2%">My first home was your heart.</span>
+  <span class="background-quote" style="top:82%;right:3%">Thank you for everything.</span>
+</div>
+
+<main>
+  <div class="flowers" aria-hidden="true">🌸 🌷 🌹 🌷 🌸</div>
+  <h1>Happy Birthday, Mom!</h1>
+  <p class="subtitle">
+    I love you today, tomorrow, and always.<br>
+    A little birthday love from your son, Jermaine. ❤️
+  </p>
+
+  <button class="photo-button" id="photoButton"
+          aria-label="Play Mom’s birthday song">
+    <img src="mom1.png" alt="Mom’s birthday portrait surrounded by pink hearts and flowers">
+  </button>
+
+  <p class="music-note" id="musicNote">💕 Click your picture to play your birthday song.</p>
+  <button class="music-button" id="musicButton">▶ Play your song</button>
+
+  <div class="player-box" id="playerBox" hidden>
+    <iframe id="songPlayer"
+      title="Mom’s birthday song"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <section class="letter">
+    <h2>I Love You, Mom ❤️</h2>
+    <p>
+      Mom, on your birthday, I want you to know how much you mean to me.
+      Thank you for your love, your patience, your strength, and every
+      sacrifice you have made. Being your son is a blessing I will
+      always carry in my heart.
+    </p>
+    <p>
+      You deserve beautiful moments, peaceful days, and all the love
+      you have given to others. I hope this birthday reminds you how
+      appreciated and deeply loved you are.
+    </p>
+    <p class="signature">With love, your son Jermaine</p>
+  </section>
+
+  <section class="quotes" aria-label="Words of love and appreciation for Mom">
+    <div class="quote">
+      <span>💗</span>
+      “Mom, your love is woven into every part of who I am.”
+    </div>
+    <div class="quote">
+      <span>🌷</span>
+      “No matter how old I get, I will always be grateful to be your son.”
+    </div>
+    <div class="quote">
+      <span>💕</span>
+      “You gave me love before I knew how to ask for it.”
+    </div>
+    <div class="quote">
+      <span>🌸</span>
+      “Your strength has inspired me, and your kindness has shaped my heart.”
+    </div>
+    <div class="quote">
+      <span>❤️</span>
+      “Thank you for the little things, the big sacrifices, and the love in between.”
+    </div>
+    <div class="quote">
+      <span>🌹</span>
+      “Today we celebrate you, Mom—the beautiful heart behind so many blessings.”
+    </div>
+    <div class="quote">
+      <span>💖</span>
+      “If I could give you one gift, it would be seeing yourself through my eyes.”
+    </div>
+    <div class="quote">
+      <span>💐</span>
+      “Happy birthday to the woman whose love will always feel like home.”
+    </div>
+  </section>
+
+  <footer>
+    🌸 Happy Birthday, Mom 🌸<br>
+    Forever your son. Forever grateful.<br>
+    <strong>Love, Jermaine ❤️</strong>
+  </footer>
+</main>
+
+<script>
+const background = document.getElementById("background");
+for (let i = 0; i < 28; i++) {
+  const heart = document.createElement("span");
+  heart.className = "heart";
+  heart.textContent = ["💗","💕","💖","🌸","🤍"][i % 5];
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.fontSize = 18 + Math.random() * 25 + "px";
+  heart.style.animationDuration = 12 + Math.random() * 16 + "s";
+  heart.style.animationDelay = -Math.random() * 28 + "s";
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heart.style.top = Math.random() * 100 + "%";
+  }
+  background.appendChild(heart);
+}
+
+let songStarted = false;
+function playSong() {
+  document.getElementById("playerBox").hidden = false;
+  if (!songStarted) {
+    document.getElementById("songPlayer").src =
+      "https://www.youtube.com/embed/vdTnuc3ktzo?autoplay=1&playsinline=1&rel=0";
+    songStarted = true;
+  }
+  document.getElementById("musicNote").textContent =
+    "💕 Your birthday song is below. Tap the video’s play button if needed.";
+  document.getElementById("musicButton").textContent = "💕 Show your song";
+}
+document.getElementById("photoButton").addEventListener("click", playSong);
+document.getElementById("musicButton").addEventListener("click", () => {
+  playSong();
+  document.getElementById("playerBox").scrollIntoView({block:"center"});
+});
+</script>
+</body>
+</html>
